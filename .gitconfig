@@ -1,0 +1,17 @@
+# This is Git's per-user configuration file.
+[user]
+  name = Tyler Reckart
+  email = tyler@alley.co
+[apply]
+  whitespace = nowarn
+[core]
+  editor = vim -u NONE
+[alias]
+  b = branch
+  st = status
+  ci = commit
+  di = diff
+  lg = log --graph --oneline
+[mergetool]
+  prompt = false
+
