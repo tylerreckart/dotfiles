@@ -98,7 +98,6 @@ autocmd BufWrite *.php :call DeleteTrailingWS()
 
 call plug#begin('~/.vim/plugged')
   " Colors
-  Plug 'rj-white/waterfall.vim'
 
   " Airline
   Plug 'vim-airline/vim-airline'
@@ -113,8 +112,6 @@ call plug#begin('~/.vim/plugged')
   " Git
   Plug 'tpope/vim-fugitive'
 call plug#end()
-
-colorscheme waterfall
 
 " Airline
 let g:airline#extensions#tabline#enabled=1

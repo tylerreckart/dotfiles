@@ -82,6 +82,6 @@ function _git_time_since_commit() {
 }
 
 # The prompt
-PROMPT='$(_random_emoji) $(_python_venv)%{$fg[cyan]%}%c $(git_prompt_info)%{$reset_color%}$(git_prompt_short_sha)%{$fg[magenta]%}$(_git_time_since_commit)$(git_prompt_status)${_return_status}➜ '
+PROMPT='$(_random_emoji) %{$fg[cyan]%}%n@%{$fg[cyan]%}%m: %{$fg[cyan]%}%c $(git_prompt_info)%{$reset_color%}$(git_prompt_short_sha)%{$fg[magenta]%}$(_git_time_since_commit)$(git_prompt_status)${_return_status}➜ '
 
 
