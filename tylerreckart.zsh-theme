@@ -3,17 +3,18 @@
 
 local _return_status="%{$fg[red]%}%(?..⍉ )%{$reset_color%}"
 
-# Determine if there is an active Python virtual environment
-function _python_venv() {
-  if [[ $VIRTUAL_ENV != "" ]]; then
-    echo "%{$fg[blue]%}(${VIRTUAL_ENV##*/})%{$reset_color%} "
-  fi
-}
-
 EMOJI=(🤯 👻 👽 🐶 🐼 🐷 🐸 🐔 🦄 🥃 🍕 🍔 🥩 🌮 )
 
 function _random_emoji {
   echo -n "$EMOJI[$RANDOM%$#EMOJI+1]"
+}
+
+function _format_hostname {
+  if [ "$HOST" = "AT-0669-MacOS.local" ]; then
+    echo "%{$fg[cyan]%}%n@%{$fg[cyan]%}orlock:"
+  else
+    echo "%{$fg[cyan]%}%n@%{$fg[cyan]%}%m:"
+  fi
 }
 
 # Format for git_prompt_long_sha() and git_prompt_short_sha()
@@ -82,6 +83,6 @@ function _git_time_since_commit() {
 }
 
 # The prompt
-PROMPT='$(_random_emoji) %{$fg[cyan]%}%n@%{$fg[cyan]%}%m: %{$fg[cyan]%}%c $(git_prompt_info)%{$reset_color%}$(git_prompt_short_sha)%{$fg[magenta]%}$(_git_time_since_commit)$(git_prompt_status)${_return_status}➜ '
+PROMPT='$(_random_emoji) $(_format_hostname) %{$fg[cyan]%}%c $(git_prompt_info)%{$reset_color%}$(git_prompt_short_sha)%{$fg[magenta]%}$(_git_time_since_commit)$(git_prompt_status)${_return_status}➜ '
 
 
